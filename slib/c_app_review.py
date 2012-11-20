@@ -111,9 +111,9 @@ def review_read_loop(app_id, page_num, review_type, review_sort_order):
     url = '/store/getreviews'
     print param, url
     ### only for test, this part
-    if int(page_num)>2:
-        db_review.db_execute_g(db_sql.sql_review_read_status_update, (app_id, ))
-        return 404, page_num
+    #if int(page_num)>2:
+    #    db_review.db_execute_g(db_sql.sql_review_read_status_update, (app_id, ))
+    #    return 404, page_num
     ###
     status, body = android_https_post(url, param)
     if status == 404:

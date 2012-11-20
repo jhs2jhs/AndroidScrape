@@ -10,11 +10,13 @@ import db_review as db_review
 import err
 import json
 
+##### configure client id here
+client_id = 'dtc'
+##### configureation server ip here
+url_root = 'http://localhost:8000/job/entry'
+
 timeout = 10
 socket.setdefaulttimeout(timeout)
-
-client_id = 'dtc'
-url_root = 'http://localhost:8000/job/entry'
 headers = {'User-Agent': 'Mozilla/5.1 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/9.0.1'}
 
 
@@ -69,10 +71,13 @@ def cron_app_review():
     print page
     
 
+def init_db_server():
+    page = page_get(client_id, 'init', 'review_read', '')
+    print page
 
 if __name__ == '__main__':
-    db_init()
-    for i in range(1, 100):
+    #init_db_server()
+    while True:
         db_init()
         cron_app_review() ## be careful when use it, at begining or be at end
         db_init()

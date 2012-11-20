@@ -30,7 +30,7 @@ def s_task_review_read_main(client_id, limit=1):
     jobs = {}
     for row in rows:
         i = i + 1
-        print '%d of %d'%(i, i_t), 
+        #print '%d of %d'%(i, i_t), 
         app_id = row[0]
         page_num = row[1]
         #page_num = 490
